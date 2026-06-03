@@ -2,6 +2,10 @@ from agents.api_agent import APIAgent
 
 from agents.llm_agent import LLMAgent
 
+from agents.semantic_similarity_agent import (
+    SemanticSimilarityAgent
+)
+
 from agents.semantic_validator_agent import (
     SemanticValidatorAgent
 )
@@ -22,6 +26,10 @@ class OrchestratorAgent:
         self.api_agent = APIAgent()
 
         self.llm_agent = LLMAgent()
+
+        self.similarity_agent = (
+            SemanticSimilarityAgent()
+        )
 
         self.validator = (
             SemanticValidatorAgent()
@@ -87,6 +95,18 @@ class OrchestratorAgent:
 
         )
 
+        similarity_score = (
+
+            self.similarity_agent.calculate(
+
+                api_response["message"],
+
+                llm_response
+
+            )
+
+        )
+
         validation_result = (
 
             self.validator.validate(
@@ -94,6 +114,8 @@ class OrchestratorAgent:
                 intent,
 
                 llm_response,
+
+                similarity_score,
 
                 api_response
 

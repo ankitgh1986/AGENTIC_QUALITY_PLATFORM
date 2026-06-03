@@ -8,6 +8,8 @@ class SemanticValidatorAgent:
 
         response,
 
+        similarity_score,
+
         api_response=None
 
     ):
@@ -24,9 +26,7 @@ class SemanticValidatorAgent:
 
         failure_type = "NONE"
 
-        semantic_score = 1.00
-
-        # Customer Care Hallucination
+        semantic_score = similarity_score
 
         if intent == "customer_care":
 
@@ -36,10 +36,6 @@ class SemanticValidatorAgent:
 
                 failure_type = "HALLUCINATION"
 
-                semantic_score = 0.20
-
-        # Bill Payment Intent Drift
-
         elif intent == "bill_payment":
 
             if "recharge" in response:
@@ -48,10 +44,6 @@ class SemanticValidatorAgent:
 
                 failure_type = "INTENT_DRIFT"
 
-                semantic_score = 0.30
-
-        # Roaming Contradiction
-
         elif intent == "roaming":
 
             if "not available" in response:
@@ -59,8 +51,6 @@ class SemanticValidatorAgent:
                 validation = "FAIL"
 
                 failure_type = "CONTRADICTION"
-
-                semantic_score = 0.10
 
         print(
 

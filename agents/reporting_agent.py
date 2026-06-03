@@ -8,11 +8,7 @@ class ReportingAgent:
 
     ):
 
-        total = len(
-
-            results
-
-        )
+        total = len(results)
 
         passed = sum(
 
@@ -24,15 +20,23 @@ class ReportingAgent:
 
         )
 
-        failed = (
-
-            total - passed
-
-        )
+        failed = total - passed
 
         pass_rate = (
 
             passed / total * 100
+
+        )
+
+        average_semantic_score = (
+
+            sum(
+
+                result["semantic_score"]
+
+                for result in results
+
+            ) / total
 
         )
 
@@ -73,18 +77,6 @@ class ReportingAgent:
             for result in results
 
             if result["risk"] == "HIGH"
-
-        )
-
-        average_semantic_score = (
-
-            sum(
-
-                result["semantic_score"]
-
-                for result in results
-
-            ) / total
 
         )
 
@@ -166,13 +158,15 @@ class ReportingAgent:
 
         )
 
-        if pass_rate >= 90:
+        recommendation = (
 
-            recommendation = "GO"
+            "GO"
 
-        else:
+            if pass_rate >= 90
 
-            recommendation = "NO GO"
+            else "NO GO"
+
+        )
 
         print(
 
