@@ -4,60 +4,42 @@ class RiskAgent:
 
         self,
 
-        intent,
-
-        result
+        validation_result
 
     ):
 
-        if result == "PASS":
+        failure_type = (
+
+            validation_result["failure_type"]
+
+        )
+
+        if failure_type == "NONE":
 
             return {
 
-                "risk": "LOW",
-
-                "failure_type": "NONE"
+                "risk": "LOW"
 
             }
 
-        if intent == "customer_care":
+        if failure_type in [
+
+            "HALLUCINATION",
+
+            "INTENT_DRIFT",
+
+            "CONTRADICTION"
+
+        ]:
 
             return {
 
-                "risk": "HIGH",
-
-                "failure_type":
-                "HALLUCINATION"
-
-            }
-
-        if intent == "bill_payment":
-
-            return {
-
-                "risk": "HIGH",
-
-                "failure_type":
-                "INTENT_DRIFT"
-
-            }
-
-        if intent == "roaming":
-
-            return {
-
-                "risk": "HIGH",
-
-                "failure_type":
-                "CONTRADICTION"
+                "risk": "HIGH"
 
             }
 
         return {
 
-            "risk": "MEDIUM",
-
-            "failure_type":
-            "UNKNOWN"
+            "risk": "MEDIUM"
 
         }

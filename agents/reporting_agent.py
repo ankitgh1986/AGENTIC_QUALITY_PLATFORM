@@ -76,6 +76,18 @@ class ReportingAgent:
 
         )
 
+        average_semantic_score = (
+
+            sum(
+
+                result["semantic_score"]
+
+                for result in results
+
+            ) / total
+
+        )
+
         print(
 
             "\n======================"
@@ -115,6 +127,12 @@ class ReportingAgent:
         print(
 
             f"Pass Rate: {pass_rate:.2f}%"
+
+        )
+
+        print(
+
+            f"Average Semantic Score: {average_semantic_score:.2f}"
 
         )
 

@@ -10,12 +10,18 @@ from agents.reporting_agent import (
     ReportingAgent
 )
 
+from agents.csv_export_agent import (
+    CSVExportAgent
+)
+
 
 generator = ScenarioGenerationAgent()
 
 orchestrator = OrchestratorAgent()
 
 reporter = ReportingAgent()
+
+csv_exporter = CSVExportAgent()
 
 
 scenarios = generator.generate()
@@ -39,16 +45,16 @@ for scenario in scenarios:
 
     print(
 
-        f"\nFinal Result: {result['result']}"
-
-    )
-
-    print(
-
         "\n----------------------"
 
     )
 
+
+csv_exporter.export(
+
+    results
+
+)
 
 reporter.generate(
 

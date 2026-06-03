@@ -93,7 +93,9 @@ class OrchestratorAgent:
 
                 intent,
 
-                llm_response
+                llm_response,
+
+                api_response
 
             )
 
@@ -102,8 +104,6 @@ class OrchestratorAgent:
         risk_result = (
 
             self.risk_agent.assess(
-
-                intent,
 
                 validation_result
 
@@ -119,7 +119,13 @@ class OrchestratorAgent:
 
         print(
 
-            f"\nFailure Type: {risk_result['failure_type']}"
+            f"\nFailure Type: {validation_result['failure_type']}"
+
+        )
+
+        print(
+
+            f"\nFinal Result: {validation_result['validation']}"
 
         )
 
@@ -138,12 +144,15 @@ class OrchestratorAgent:
             llm_response,
 
             "result":
-            validation_result,
+            validation_result["validation"],
+
+            "semantic_score":
+            validation_result["semantic_score"],
 
             "risk":
             risk_result["risk"],
 
             "failure_type":
-            risk_result["failure_type"]
+            validation_result["failure_type"]
 
         }

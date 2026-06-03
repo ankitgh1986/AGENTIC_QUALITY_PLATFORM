@@ -20,7 +20,11 @@ class SemanticValidatorAgent:
 
         response = response.lower()
 
-        result = "PASS"
+        validation = "PASS"
+
+        failure_type = "NONE"
+
+        semantic_score = 1.00
 
         # Customer Care Hallucination
 
@@ -28,7 +32,11 @@ class SemanticValidatorAgent:
 
             if "999" in response:
 
-                result = "FAIL"
+                validation = "FAIL"
+
+                failure_type = "HALLUCINATION"
+
+                semantic_score = 0.20
 
         # Bill Payment Intent Drift
 
@@ -36,7 +44,11 @@ class SemanticValidatorAgent:
 
             if "recharge" in response:
 
-                result = "FAIL"
+                validation = "FAIL"
+
+                failure_type = "INTENT_DRIFT"
+
+                semantic_score = 0.30
 
         # Roaming Contradiction
 
@@ -44,12 +56,30 @@ class SemanticValidatorAgent:
 
             if "not available" in response:
 
-                result = "FAIL"
+                validation = "FAIL"
+
+                failure_type = "CONTRADICTION"
+
+                semantic_score = 0.10
 
         print(
 
-            f"\nValidation: {result}"
+            f"\nValidation: {validation}"
 
         )
 
-        return result
+        print(
+
+            f"\nSemantic Score: {semantic_score:.2f}"
+
+        )
+
+        return {
+
+            "validation": validation,
+
+            "failure_type": failure_type,
+
+            "semantic_score": semantic_score
+
+        }
