@@ -40,6 +40,18 @@ class ReportingAgent:
 
         )
 
+        average_judge_score = (
+
+            sum(
+
+                result["judge_score"]
+
+                for result in results
+
+            ) / total
+
+        )
+
         hallucinations = sum(
 
             1
@@ -125,6 +137,12 @@ class ReportingAgent:
         print(
 
             f"Average Semantic Score: {average_semantic_score:.2f}"
+
+        )
+
+        print(
+
+            f"Average Judge Score: {average_judge_score:.2f}/10"
 
         )
 

@@ -10,6 +10,10 @@ from agents.semantic_validator_agent import (
     SemanticValidatorAgent
 )
 
+from agents.llm_judge_agent import (
+    LLMJudgeAgent
+)
+
 from agents.risk_agent import (
     RiskAgent
 )
@@ -33,6 +37,10 @@ class OrchestratorAgent:
 
         self.validator = (
             SemanticValidatorAgent()
+        )
+
+        self.judge_agent = (
+            LLMJudgeAgent()
         )
 
         self.risk_agent = (
@@ -123,6 +131,16 @@ class OrchestratorAgent:
 
         )
 
+        judge_result = (
+
+            self.judge_agent.evaluate(
+
+                validation_result
+
+            )
+
+        )
+
         risk_result = (
 
             self.risk_agent.assess(
@@ -170,6 +188,15 @@ class OrchestratorAgent:
 
             "semantic_score":
             validation_result["semantic_score"],
+
+            "judge_score":
+            judge_result["score"],
+
+            "judge_verdict":
+            judge_result["verdict"],
+
+            "judge_reason":
+            judge_result["reason"],
 
             "risk":
             risk_result["risk"],

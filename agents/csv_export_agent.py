@@ -43,6 +43,12 @@ class CSVExportAgent:
 
                     "Semantic Score",
 
+                    "Judge Score",
+
+                    "Judge Verdict",
+
+                    "Judge Reason",
+
                     "Risk",
 
                     "Failure Type"
@@ -64,6 +70,12 @@ class CSVExportAgent:
                         result["result"],
 
                         result["semantic_score"],
+
+                        result["judge_score"],
+
+                        result["judge_verdict"],
+
+                        result["judge_reason"],
 
                         result["risk"],
 
