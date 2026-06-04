@@ -18,6 +18,10 @@ from agents.risk_agent import (
     RiskAgent
 )
 
+from models.evaluation_result import (
+    EvaluationResult
+)
+
 
 class OrchestratorAgent:
 
@@ -83,6 +87,14 @@ class OrchestratorAgent:
 
         )
 
+        result = EvaluationResult(
+
+            scenario["id"],
+
+            intent
+
+        )
+
         api_response = (
 
             self.api_agent.execute(
@@ -93,6 +105,10 @@ class OrchestratorAgent:
 
         )
 
+        result.api_response = (
+            api_response
+        )
+
         llm_response = (
 
             self.llm_agent.execute(
@@ -101,6 +117,10 @@ class OrchestratorAgent:
 
             )
 
+        )
+
+        result.llm_response = (
+            llm_response
         )
 
         similarity_score = (
@@ -151,57 +171,50 @@ class OrchestratorAgent:
 
         )
 
-        print(
-
-            f"\nRisk Level: {risk_result['risk']}"
-
+        result.result = (
+            validation_result["validation"]
         )
 
-        print(
-
-            f"\nFailure Type: {validation_result['failure_type']}"
-
+        result.semantic_score = (
+            validation_result["semantic_score"]
         )
 
-        print(
-
-            f"\nFinal Result: {validation_result['validation']}"
-
-        )
-
-        return {
-
-            "scenario_id":
-            scenario["id"],
-
-            "intent":
-            intent,
-
-            "api_response":
-            api_response,
-
-            "llm_response":
-            llm_response,
-
-            "result":
-            validation_result["validation"],
-
-            "semantic_score":
-            validation_result["semantic_score"],
-
-            "judge_score":
-            judge_result["score"],
-
-            "judge_verdict":
-            judge_result["verdict"],
-
-            "judge_reason":
-            judge_result["reason"],
-
-            "risk":
-            risk_result["risk"],
-
-            "failure_type":
+        result.failure_type = (
             validation_result["failure_type"]
+        )
 
-        }
+        result.judge_score = (
+            judge_result["score"]
+        )
+
+        result.judge_verdict = (
+            judge_result["verdict"]
+        )
+
+        result.judge_reason = (
+            judge_result["reason"]
+        )
+
+        result.risk = (
+            risk_result["risk"]
+        )
+
+        print(
+
+            f"\nRisk Level: {result.risk}"
+
+        )
+
+        print(
+
+            f"\nFailure Type: {result.failure_type}"
+
+        )
+
+        print(
+
+            f"\nFinal Result: {result.result}"
+
+        )
+
+        return result

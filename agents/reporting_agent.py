@@ -16,7 +16,7 @@ class ReportingAgent:
 
             for result in results
 
-            if result["result"] == "PASS"
+            if result.result == "PASS"
 
         )
 
@@ -32,7 +32,7 @@ class ReportingAgent:
 
             sum(
 
-                result["semantic_score"]
+                result.semantic_score
 
                 for result in results
 
@@ -44,7 +44,7 @@ class ReportingAgent:
 
             sum(
 
-                result["judge_score"]
+                result.judge_score
 
                 for result in results
 
@@ -58,7 +58,7 @@ class ReportingAgent:
 
             for result in results
 
-            if result["failure_type"] == "HALLUCINATION"
+            if result.failure_type == "HALLUCINATION"
 
         )
 
@@ -68,7 +68,7 @@ class ReportingAgent:
 
             for result in results
 
-            if result["failure_type"] == "INTENT_DRIFT"
+            if result.failure_type == "INTENT_DRIFT"
 
         )
 
@@ -78,7 +78,7 @@ class ReportingAgent:
 
             for result in results
 
-            if result["failure_type"] == "CONTRADICTION"
+            if result.failure_type == "CONTRADICTION"
 
         )
 
@@ -88,7 +88,7 @@ class ReportingAgent:
 
             for result in results
 
-            if result["risk"] == "HIGH"
+            if result.risk == "HIGH"
 
         )
 

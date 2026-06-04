@@ -63,23 +63,23 @@ class CSVExportAgent:
 
                     [
 
-                        result["scenario_id"],
+                        result.scenario_id,
 
-                        result["intent"],
+                        result.intent,
 
-                        result["result"],
+                        result.result,
 
-                        result["semantic_score"],
+                        result.semantic_score,
 
-                        result["judge_score"],
+                        result.judge_score,
 
-                        result["judge_verdict"],
+                        result.judge_verdict,
 
-                        result["judge_reason"],
+                        result.judge_reason,
 
-                        result["risk"],
+                        result.risk,
 
-                        result["failure_type"]
+                        result.failure_type
 
                     ]
 
