@@ -45,9 +45,9 @@ class CSVExportAgent:
 
                     "Judge Score",
 
-                    "Judge Verdict",
+                    "Confidence Score",
 
-                    "Judge Reason",
+                    "Confidence Level",
 
                     "Risk",
 
@@ -73,9 +73,9 @@ class CSVExportAgent:
 
                         result.judge_score,
 
-                        result.judge_verdict,
+                        result.confidence_score,
 
-                        result.judge_reason,
+                        result.confidence_level,
 
                         result.risk,
 

@@ -28,6 +28,10 @@ class EvaluationResult:
 
         self.judge_reason = None
 
+        self.confidence_score = 0.0
+
+        self.confidence_level = None
+
         self.risk = None
 
         self.failure_type = None

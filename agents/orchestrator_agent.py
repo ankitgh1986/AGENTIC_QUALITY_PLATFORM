@@ -14,6 +14,10 @@ from agents.llm_judge_agent import (
     LLMJudgeAgent
 )
 
+from agents.confidence_agent import (
+    ConfidenceAgent
+)
+
 from agents.risk_agent import (
     RiskAgent
 )
@@ -45,6 +49,10 @@ class OrchestratorAgent:
 
         self.judge_agent = (
             LLMJudgeAgent()
+        )
+
+        self.confidence_agent = (
+            ConfidenceAgent()
         )
 
         self.risk_agent = (
@@ -161,6 +169,18 @@ class OrchestratorAgent:
 
         )
 
+        confidence_result = (
+
+            self.confidence_agent.calculate(
+
+                validation_result["semantic_score"],
+
+                judge_result["score"]
+
+            )
+
+        )
+
         risk_result = (
 
             self.risk_agent.assess(
@@ -193,6 +213,14 @@ class OrchestratorAgent:
 
         result.judge_reason = (
             judge_result["reason"]
+        )
+
+        result.confidence_score = (
+            confidence_result["score"]
+        )
+
+        result.confidence_level = (
+            confidence_result["level"]
         )
 
         result.risk = (

@@ -57,6 +57,18 @@ class ReportingAgent:
 
         )
 
+        average_confidence_score = (
+
+            sum(
+
+                result.confidence_score
+
+                for result in results
+
+            ) / total
+
+        )
+
         hallucinations = sum(
 
             1
@@ -164,6 +176,12 @@ class ReportingAgent:
         print(
 
             f"Average Judge Score: {average_judge_score:.2f}/10"
+
+        )
+
+        print(
+
+            f"Average Confidence Score: {average_confidence_score:.2f}%"
 
         )
 
