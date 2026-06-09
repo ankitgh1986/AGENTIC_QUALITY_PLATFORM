@@ -1,3 +1,8 @@
+from agents.trend_analysis_agent import (
+    TrendAnalysisAgent
+)
+
+
 class ReportingAgent:
 
     def generate(
@@ -92,6 +97,22 @@ class ReportingAgent:
 
         )
 
+        trend_agent = (
+
+            TrendAnalysisAgent()
+
+        )
+
+        trend_result = (
+
+            trend_agent.analyze(
+
+                pass_rate
+
+            )
+
+        )
+
         print(
 
             "\n======================"
@@ -175,6 +196,52 @@ class ReportingAgent:
             f"\nHigh Risk Issues: {high_risk}"
 
         )
+
+        print(
+
+            "\nTREND ANALYSIS"
+
+        )
+
+        if (
+
+            trend_result["previous"]
+
+            is None
+
+        ):
+
+            print(
+
+                "\nBaseline Run Established"
+
+            )
+
+        else:
+
+            print(
+
+                f"\nPrevious Pass Rate: {trend_result['previous']:.2f}%"
+
+            )
+
+            print(
+
+                f"Current Pass Rate: {trend_result['current']:.2f}%"
+
+            )
+
+            print(
+
+                f"Trend: {trend_result['trend']}"
+
+            )
+
+            print(
+
+                f"Change: {trend_result['change']:.2f}%"
+
+            )
 
         recommendation = (
 

@@ -119,36 +119,36 @@ GEN_117,data_usage,PASS,0.8886171579360962,9,PASS,Response aligns with expected 
 GEN_118,data_usage,PASS,0.8886171579360962,9,PASS,Response aligns with expected intent.,LOW,NONE
 GEN_119,data_usage,PASS,0.8886171579360962,9,PASS,Response aligns with expected intent.,LOW,NONE
 GEN_120,data_usage,PASS,0.8886171579360962,9,PASS,Response aligns with expected intent.,LOW,NONE
-GEN_121,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_122,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_123,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_124,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_125,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_126,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_127,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_128,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_129,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_130,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_131,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_132,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_133,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_134,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_135,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_136,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_137,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_138,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_139,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_140,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_141,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_142,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_143,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_144,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_145,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_146,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_147,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_148,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_149,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
-GEN_150,customer_care,FAIL,0.45602816343307495,2,FAIL,Response contains unsupported information.,HIGH,HALLUCINATION
+GEN_121,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_122,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_123,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_124,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_125,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_126,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_127,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_128,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_129,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_130,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_131,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_132,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_133,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_134,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_135,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_136,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_137,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_138,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_139,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_140,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_141,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_142,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_143,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_144,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_145,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_146,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_147,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_148,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_149,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
+GEN_150,customer_care,PASS,0.7191532254219055,9,PASS,Response aligns with expected intent.,LOW,NONE
 GEN_151,network_issue,PASS,0.385612815618515,9,PASS,Response aligns with expected intent.,LOW,NONE
 GEN_152,network_issue,PASS,0.385612815618515,9,PASS,Response aligns with expected intent.,LOW,NONE
 GEN_153,network_issue,PASS,0.385612815618515,9,PASS,Response aligns with expected intent.,LOW,NONE
