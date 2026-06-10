@@ -1,205 +1,320 @@
-# Agentic AI Quality Platform
+# Agentic AI Quality Platform v3.0
 
-An Agentic AI Testing and Evaluation Framework that validates LLM responses using multiple specialized agents and provides semantic, risk, judge, and trend-based quality assessments.
+## Overview
 
-## Current Version
+Agentic AI Quality Platform is a multi-agent AI testing framework designed to evaluate Large Language Model (LLM) responses using a combination of semantic validation, consensus-based judging, probabilistic verification, security analysis, human review workflows, and intelligent decision-making.
 
-v2.3
-
----
-
-## Architecture
-
-ScenarioGenerationAgent
-
-↓
-
-APIAgent
-
-↓
-
-LLMAgent
-
-↓
-
-SemanticSimilarityAgent
-
-↓
-
-SemanticValidatorAgent
-
-↓
-
-LLMJudgeAgent
-
-↓
-
-EvaluationResult Model
-
-↓
-
-RiskAgent
-
-↓
-
-CSVExportAgent
-
-↓
-
-TrendAnalysisAgent
-
-↓
-
-ReportingAgent
+The platform simulates how enterprise AI Quality Engineering teams validate AI applications before production release.
 
 ---
 
-## Features
+## Key Features
 
-### Scenario Generation
+### Multi-Agent Evaluation Pipeline
 
-* Automated Scenario Generation
-* 300 Test Scenarios
-* Happy Path Scenarios
-* Variations and Rephrased Queries
-* Hinglish Test Cases
-* Adversarial Test Cases
+The framework evaluates every scenario using multiple specialized agents:
 
-### Validation
-
-* API Response Validation
-* LLM Response Validation
-* Semantic Similarity Scoring
-* Rule-Based Validation
-
-### Failure Detection
-
-* Hallucination Detection
-* Intent Drift Detection
-* Contradiction Detection
-
-### AI Evaluation
-
-* Semantic Score Calculation
-* LLM Judge Evaluation
-* Judge Score
-* Judge Verdict
-* Judge Reason
-
-### Risk Assessment
-
-* LOW Risk Classification
-* MEDIUM Risk Classification
-* HIGH Risk Classification
-
-### Reporting
-
-* CSV Export
-* Executive Summary Report
-* Pass Rate Calculation
-* Failure Breakdown
-* GO / NO GO Recommendation
-
-### Historical Analysis
-
-* Historical Run Tracking
-* Pass Rate Trend Analysis
-* Quality Improvement Tracking
+* Scenario Generation Agent
+* API Validation Agent
+* LLM Validation Agent
+* Semantic Similarity Agent
+* Semantic Validator Agent
+* Judge A Agent
+* Judge B Agent
+* Consensus Agent
+* Confidence Agent
+* Probabilistic Verification Agent
+* Prompt Security Agent
+* Review Queue Agent
+* Trend Analysis Agent
+* Historical Analytics Agent
+* Risk Agent
+* Intelligent Evaluation Agent
+* CSV Export Agent
+* Reporting Agent
+* Orchestrator Agent
 
 ---
 
-## Dataset
+## Architecture Flow
 
-### Domain
-
-Telecom
-
-### Supported Intents
-
-* Balance Inquiry
-* Data Usage
-* Customer Care
-* Network Issue
-* Bill Payment
-* Roaming
-* SIM Activation
-* Plan Information
-* Recharge
-* SMS and Calls
-
-### Test Volume
-
-* 10 Intents
-* 300 Generated Scenarios
+Scenario Generation
+↓
+API Validation
+↓
+LLM Validation
+↓
+Semantic Similarity
+↓
+Semantic Validation
+↓
+Judge A Evaluation
+↓
+Judge B Evaluation
+↓
+Consensus Evaluation
+↓
+Prompt Security Analysis
+↓
+Review Queue Assessment
+↓
+Confidence Scoring
+↓
+Probabilistic Verification
+↓
+Intelligent Evaluation Engine
+↓
+PASS / FAIL / REVIEW_REQUIRED
+↓
+CSV Export
+↓
+Executive Reporting
 
 ---
 
-## Example Metrics
+## Intelligent Evaluation Engine (v3.0)
 
-* Total Scenarios
-* Passed Scenarios
-* Failed Scenarios
+The Intelligent Evaluation Agent acts as the final decision authority.
+
+It combines:
+
+* Semantic Score
+* Consensus Score
+* Confidence Score
+* Probability Score
+* Security Risk
+* Human Review Requirement
+
+Final outcomes:
+
+* PASS
+* FAIL
+* REVIEW_REQUIRED
+
+This simulates real-world AI governance workflows where multiple signals contribute to release decisions.
+
+---
+
+## Failure Categories
+
+The framework detects and classifies:
+
+### Hallucination
+
+Response contains unsupported or fabricated information.
+
+### Intent Drift
+
+Response deviates from the expected intent.
+
+### Contradiction
+
+Response conflicts with expected behavior or source response.
+
+### Security Findings
+
+Prompt injection and security-related attacks are detected and escalated.
+
+---
+
+## Security Testing
+
+The Prompt Security Agent identifies:
+
+* Prompt Injection Attempts
+* Jailbreak Patterns
+* Internal Information Requests
+* Malicious Instructions
+
+Security findings influence the Intelligent Evaluation Engine.
+
+---
+
+## Human Review Workflow
+
+Borderline responses can be routed to a review queue.
+
+Possible states:
+
+* NOT_REQUIRED
+* PENDING_REVIEW
+
+This allows human oversight for uncertain AI decisions.
+
+---
+
+## Consensus-Based Evaluation
+
+Two independent judge agents evaluate every response.
+
+Outputs include:
+
+* Judge A Score
+* Judge B Score
+* Consensus Score
+* Agreement Percentage
+
+This reduces reliance on a single evaluator.
+
+---
+
+## Confidence & Probabilistic Verification
+
+The platform calculates:
+
+### Confidence Score
+
+Measures confidence in evaluation quality.
+
+### Probability Score
+
+Estimates likelihood that the response is correct.
+
+### Verification Verdict
+
+* LIKELY_CORRECT
+* UNCERTAIN
+* LIKELY_INCORRECT
+
+---
+
+## Historical Analytics
+
+The platform tracks execution history across runs.
+
+Metrics include:
+
+* Total Historical Runs
+* Best Pass Rate
+* Worst Pass Rate
+* Historical Average Pass Rate
+* Latest Run Timestamp
+
+---
+
+## Reporting Dashboard
+
+Generated report includes:
+
+* Pass / Fail / Review Required Counts
 * Pass Rate
-* Average Semantic Score
-* Average Judge Score
-* Failure Type Distribution
-* Risk Distribution
-* Historical Trends
+* Fail Rate
+* Review Required Rate
+* Semantic Metrics
+* Consensus Metrics
+* Security Metrics
+* Risk Metrics
+* Historical Analytics
+* Trend Analysis
+* GO / NO GO Recommendation
 
 ---
 
 ## Sample Output
 
-Pass Rate: 70.00%
+Total Scenarios: 300
 
-Average Semantic Score: 0.68
+Passed: 150
 
-Average Judge Score: 6.90/10
+Failed: 50
 
-Hallucinations: 30
+Review Required: 100
 
-Intent Drift: 30
+Pass Rate: 50.00%
 
-Contradictions: 30
+Fail Rate: 16.67%
+
+Review Required Rate: 33.33%
+
+Average Consensus Score: 6.85/10
+
+Average Confidence Score: 68.26%
+
+Average Probability Score: 68.23%
 
 Recommendation: NO GO
 
 ---
 
-## Project Structure
+## Current Dataset
 
-AGENTIC_QUALITY_PLATFORM/
+Domain: Telecom
 
-├── agents/
+Supported Intents:
 
-├── models/
-
-├── reports/
-
-├── test_data/
-
-├── run.py
-
-├── requirements.txt
-
-└── README.md
+* What Is My Balance
+* Unable To Connect To Internet
+* Unable To SMS And Calls
+* Recharge My Number
+* Data Consumption
+* Customer Care Contact
+* How To Check History
+* Slow Internet
+* App Device Service Not Working
+* Plan Information
 
 ---
 
-## Roadmap
+## Technology Stack
 
-### Completed
+* Python
+* CSV Reporting
+* Agent-Based Architecture
+* Rule-Based Evaluation
+* Probabilistic Validation
+* Multi-Agent Consensus
 
-* v1.0 Core Agent Framework
-* v2.0 Semantic Similarity Agent
-* v2.1 LLM Judge Agent
-* v2.2 EvaluationResult Model
-* v2.3 Trend Analysis Agent
+---
 
-### Planned
+## Version History
 
-* v2.4 Confidence Agent
-* v2.5 Probabilistic Verification
-* v2.6 Multi-Judge Evaluation
-* v2.7 Dashboard Metrics Export
-* v3.0 Real LLM Integration
+### v1.0
+
+* Basic Agentic Testing Framework
+* Semantic Validation
+* Risk Classification
+
+### v2.0
+
+* LLM Judge
+* Confidence Scoring
+* Trend Analysis
+* Probabilistic Verification
+
+### v2.5
+
+* Multi-Judge Consensus
+* Human Review Queue
+
+### v2.8
+
+* Prompt Security Agent
+
+### v2.9
+
+* Historical Analytics
+
+### v3.0
+
+* Intelligent Evaluation Engine
+* PASS / FAIL / REVIEW_REQUIRED Decisioning
+
+---
+
+## Future Enhancements
+
+* Real LLM Integration (OpenAI / Claude / Gemini)
+* Vector Database Support
+* Evaluation Dashboard
+* Agent Memory
+* RAG Testing
+* Automated Benchmarking
+* Real-Time Monitoring
+
+---
+
+## Author
+
+Ankit Srivastava
+
+Agentic AI Quality Engineering Portfolio Project
