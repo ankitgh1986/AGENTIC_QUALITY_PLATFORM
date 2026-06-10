@@ -14,6 +14,12 @@ class JudgeBAgent:
 
         )
 
+        failure_type = (
+
+            validation_result["failure_type"]
+
+        )
+
         if (
 
             validation_result["validation"]
@@ -34,15 +40,29 @@ class JudgeBAgent:
 
         else:
 
-            score = 3
+            if failure_type == "INTENT_DRIFT":
 
-            verdict = "FAIL"
+                score = 6
 
-            reason = (
+                verdict = "PASS"
 
-                "Potential quality issue detected."
+                reason = (
 
-            )
+                    "Potentially acceptable response."
+
+                )
+
+            else:
+
+                score = 3
+
+                verdict = "FAIL"
+
+                reason = (
+
+                    "Potential quality issue detected."
+
+                )
 
         print(
 
@@ -53,6 +73,12 @@ class JudgeBAgent:
         print(
 
             f"\nJudge B Verdict: {verdict}"
+
+        )
+
+        print(
+
+            f"\nJudge B Reason: {reason}"
 
         )
 

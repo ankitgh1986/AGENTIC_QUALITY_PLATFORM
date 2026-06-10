@@ -52,6 +52,14 @@ class EvaluationResult:
 
         self.probability_verdict = None
 
+        self.security_risk = None
+
+        self.attack_type = None
+
+        self.review_required = False
+
+        self.review_status = None
+
         self.risk = None
 
         self.failure_type = None

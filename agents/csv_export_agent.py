@@ -57,6 +57,14 @@ class CSVExportAgent:
 
                     "Consensus Verdict",
 
+                    "Security Risk",
+
+                    "Attack Type",
+
+                    "Review Required",
+
+                    "Review Status",
+
                     "Confidence Score",
 
                     "Confidence Level",
@@ -102,6 +110,14 @@ class CSVExportAgent:
                         result.consensus_agreement,
 
                         result.consensus_verdict,
+
+                        result.security_risk,
+
+                        result.attack_type,
+
+                        result.review_required,
+
+                        result.review_status,
 
                         result.confidence_score,
 

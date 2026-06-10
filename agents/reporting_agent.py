@@ -117,6 +117,22 @@ class ReportingAgent:
 
         )
 
+        pending_reviews = sum(
+
+            1
+
+            for result in results
+
+            if result.review_required
+
+        )
+
+        review_rate = (
+
+            pending_reviews / total * 100
+
+        )
+
         hallucinations = sum(
 
             1
@@ -184,6 +200,26 @@ class ReportingAgent:
             for result in results
 
             if result.probability_likelihood == "LOW"
+
+        )
+
+        high_security_risk = sum(
+
+            1
+
+            for result in results
+
+            if result.security_risk == "HIGH"
+
+        )
+
+        prompt_injections = sum(
+
+            1
+
+            for result in results
+
+            if result.attack_type == "PROMPT_INJECTION"
 
         )
 
@@ -332,6 +368,42 @@ class ReportingAgent:
         print(
 
             f"Average Consensus Score: {average_consensus_score:.2f}/10"
+
+        )
+
+        print(
+
+            "\nSECURITY ANALYSIS"
+
+        )
+
+        print(
+
+            f"\nHigh Security Risk Scenarios: {high_security_risk}"
+
+        )
+
+        print(
+
+            f"Prompt Injection Attempts: {prompt_injections}"
+
+        )
+
+        print(
+
+            "\nREVIEW QUEUE"
+
+        )
+
+        print(
+
+            f"\nPending Reviews: {pending_reviews}"
+
+        )
+
+        print(
+
+            f"Review Rate: {review_rate:.2f}%"
 
         )
 

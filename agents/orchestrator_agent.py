@@ -22,6 +22,14 @@ from agents.consensus_agent import (
     ConsensusAgent
 )
 
+from agents.prompt_security_agent import (
+    PromptSecurityAgent
+)
+
+from agents.review_queue_agent import (
+    ReviewQueueAgent
+)
+
 from agents.confidence_agent import (
     ConfidenceAgent
 )
@@ -69,6 +77,14 @@ class OrchestratorAgent:
 
         self.consensus_agent = (
             ConsensusAgent()
+        )
+
+        self.security_agent = (
+            PromptSecurityAgent()
+        )
+
+        self.review_queue_agent = (
+            ReviewQueueAgent()
         )
 
         self.confidence_agent = (
@@ -215,6 +231,26 @@ class OrchestratorAgent:
 
         )
 
+        security_result = (
+
+            self.security_agent.evaluate(
+
+                prompt
+
+            )
+
+        )
+
+        review_result = (
+
+            self.review_queue_agent.evaluate(
+
+                consensus_result
+
+            )
+
+        )
+
         confidence_result = (
 
             self.confidence_agent.calculate(
@@ -289,6 +325,22 @@ class OrchestratorAgent:
 
         result.consensus_verdict = (
             consensus_result["verdict"]
+        )
+
+        result.security_risk = (
+            security_result["risk"]
+        )
+
+        result.attack_type = (
+            security_result["attack_type"]
+        )
+
+        result.review_required = (
+            review_result["required"]
+        )
+
+        result.review_status = (
+            review_result["status"]
         )
 
         result.confidence_score = (
