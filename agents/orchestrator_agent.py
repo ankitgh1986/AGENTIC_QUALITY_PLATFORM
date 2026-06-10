@@ -10,12 +10,24 @@ from agents.semantic_validator_agent import (
     SemanticValidatorAgent
 )
 
-from agents.llm_judge_agent import (
-    LLMJudgeAgent
+from agents.judge_a_agent import (
+    JudgeAAgent
+)
+
+from agents.judge_b_agent import (
+    JudgeBAgent
+)
+
+from agents.consensus_agent import (
+    ConsensusAgent
 )
 
 from agents.confidence_agent import (
     ConfidenceAgent
+)
+
+from agents.probabilistic_verification_agent import (
+    ProbabilisticVerificationAgent
 )
 
 from agents.risk_agent import (
@@ -47,12 +59,24 @@ class OrchestratorAgent:
             SemanticValidatorAgent()
         )
 
-        self.judge_agent = (
-            LLMJudgeAgent()
+        self.judge_a_agent = (
+            JudgeAAgent()
+        )
+
+        self.judge_b_agent = (
+            JudgeBAgent()
+        )
+
+        self.consensus_agent = (
+            ConsensusAgent()
         )
 
         self.confidence_agent = (
             ConfidenceAgent()
+        )
+
+        self.probability_agent = (
+            ProbabilisticVerificationAgent()
         )
 
         self.risk_agent = (
@@ -159,11 +183,33 @@ class OrchestratorAgent:
 
         )
 
-        judge_result = (
+        judge_a_result = (
 
-            self.judge_agent.evaluate(
+            self.judge_a_agent.evaluate(
 
                 validation_result
+
+            )
+
+        )
+
+        judge_b_result = (
+
+            self.judge_b_agent.evaluate(
+
+                validation_result
+
+            )
+
+        )
+
+        consensus_result = (
+
+            self.consensus_agent.evaluate(
+
+                judge_a_result,
+
+                judge_b_result
 
             )
 
@@ -175,7 +221,21 @@ class OrchestratorAgent:
 
                 validation_result["semantic_score"],
 
-                judge_result["score"]
+                consensus_result["score"]
+
+            )
+
+        )
+
+        probability_result = (
+
+            self.probability_agent.verify(
+
+                validation_result["semantic_score"],
+
+                consensus_result["score"],
+
+                confidence_result["score"]
 
             )
 
@@ -203,16 +263,32 @@ class OrchestratorAgent:
             validation_result["failure_type"]
         )
 
-        result.judge_score = (
-            judge_result["score"]
+        result.judge_a_score = (
+            judge_a_result["score"]
         )
 
-        result.judge_verdict = (
-            judge_result["verdict"]
+        result.judge_a_verdict = (
+            judge_a_result["verdict"]
         )
 
-        result.judge_reason = (
-            judge_result["reason"]
+        result.judge_b_score = (
+            judge_b_result["score"]
+        )
+
+        result.judge_b_verdict = (
+            judge_b_result["verdict"]
+        )
+
+        result.consensus_score = (
+            consensus_result["score"]
+        )
+
+        result.consensus_agreement = (
+            consensus_result["agreement"]
+        )
+
+        result.consensus_verdict = (
+            consensus_result["verdict"]
         )
 
         result.confidence_score = (
@@ -221,6 +297,18 @@ class OrchestratorAgent:
 
         result.confidence_level = (
             confidence_result["level"]
+        )
+
+        result.probability_score = (
+            probability_result["probability"]
+        )
+
+        result.probability_likelihood = (
+            probability_result["likelihood"]
+        )
+
+        result.probability_verdict = (
+            probability_result["verdict"]
         )
 
         result.risk = (

@@ -45,11 +45,47 @@ class ReportingAgent:
 
         )
 
-        average_judge_score = (
+        average_judge_a_score = (
 
             sum(
 
-                result.judge_score
+                result.judge_a_score
+
+                for result in results
+
+            ) / total
+
+        )
+
+        average_judge_b_score = (
+
+            sum(
+
+                result.judge_b_score
+
+                for result in results
+
+            ) / total
+
+        )
+
+        average_consensus_score = (
+
+            sum(
+
+                result.consensus_score
+
+                for result in results
+
+            ) / total
+
+        )
+
+        average_agreement = (
+
+            sum(
+
+                result.consensus_agreement
 
                 for result in results
 
@@ -62,6 +98,18 @@ class ReportingAgent:
             sum(
 
                 result.confidence_score
+
+                for result in results
+
+            ) / total
+
+        )
+
+        average_probability_score = (
+
+            sum(
+
+                result.probability_score
 
                 for result in results
 
@@ -106,6 +154,36 @@ class ReportingAgent:
             for result in results
 
             if result.risk == "HIGH"
+
+        )
+
+        high_probability = sum(
+
+            1
+
+            for result in results
+
+            if result.probability_likelihood == "HIGH"
+
+        )
+
+        medium_probability = sum(
+
+            1
+
+            for result in results
+
+            if result.probability_likelihood == "MEDIUM"
+
+        )
+
+        low_probability = sum(
+
+            1
+
+            for result in results
+
+            if result.probability_likelihood == "LOW"
 
         )
 
@@ -175,13 +253,37 @@ class ReportingAgent:
 
         print(
 
-            f"Average Judge Score: {average_judge_score:.2f}/10"
+            f"Average Judge A Score: {average_judge_a_score:.2f}/10"
+
+        )
+
+        print(
+
+            f"Average Judge B Score: {average_judge_b_score:.2f}/10"
+
+        )
+
+        print(
+
+            f"Average Consensus Score: {average_consensus_score:.2f}/10"
+
+        )
+
+        print(
+
+            f"Average Agreement: {average_agreement:.2f}%"
 
         )
 
         print(
 
             f"Average Confidence Score: {average_confidence_score:.2f}%"
+
+        )
+
+        print(
+
+            f"Average Probability Score: {average_probability_score:.2f}%"
 
         )
 
@@ -212,6 +314,48 @@ class ReportingAgent:
         print(
 
             f"\nHigh Risk Issues: {high_risk}"
+
+        )
+
+        print(
+
+            "\nCONSENSUS METRICS"
+
+        )
+
+        print(
+
+            f"\nAverage Judge Agreement: {average_agreement:.2f}%"
+
+        )
+
+        print(
+
+            f"Average Consensus Score: {average_consensus_score:.2f}/10"
+
+        )
+
+        print(
+
+            "\nPROBABILITY DISTRIBUTION"
+
+        )
+
+        print(
+
+            f"\nHIGH: {high_probability}"
+
+        )
+
+        print(
+
+            f"MEDIUM: {medium_probability}"
+
+        )
+
+        print(
+
+            f"LOW: {low_probability}"
 
         )
 

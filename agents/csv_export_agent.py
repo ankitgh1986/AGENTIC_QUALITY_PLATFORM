@@ -43,11 +43,29 @@ class CSVExportAgent:
 
                     "Semantic Score",
 
-                    "Judge Score",
+                    "Judge A Score",
+
+                    "Judge A Verdict",
+
+                    "Judge B Score",
+
+                    "Judge B Verdict",
+
+                    "Consensus Score",
+
+                    "Consensus Agreement",
+
+                    "Consensus Verdict",
 
                     "Confidence Score",
 
                     "Confidence Level",
+
+                    "Probability Score",
+
+                    "Probability Likelihood",
+
+                    "Probability Verdict",
 
                     "Risk",
 
@@ -71,11 +89,29 @@ class CSVExportAgent:
 
                         result.semantic_score,
 
-                        result.judge_score,
+                        result.judge_a_score,
+
+                        result.judge_a_verdict,
+
+                        result.judge_b_score,
+
+                        result.judge_b_verdict,
+
+                        result.consensus_score,
+
+                        result.consensus_agreement,
+
+                        result.consensus_verdict,
 
                         result.confidence_score,
 
                         result.confidence_level,
+
+                        result.probability_score,
+
+                        result.probability_likelihood,
+
+                        result.probability_verdict,
 
                         result.risk,
 

@@ -28,9 +28,29 @@ class EvaluationResult:
 
         self.judge_reason = None
 
+        self.judge_a_score = 0
+
+        self.judge_a_verdict = None
+
+        self.judge_b_score = 0
+
+        self.judge_b_verdict = None
+
+        self.consensus_score = 0.0
+
+        self.consensus_agreement = 0
+
+        self.consensus_verdict = None
+
         self.confidence_score = 0.0
 
         self.confidence_level = None
+
+        self.probability_score = 0.0
+
+        self.probability_likelihood = None
+
+        self.probability_verdict = None
 
         self.risk = None
 
