@@ -2,6 +2,10 @@ from agents.trend_analysis_agent import (
     TrendAnalysisAgent
 )
 
+from agents.historical_analytics_agent import (
+    HistoricalAnalyticsAgent
+)
+
 
 class ReportingAgent:
 
@@ -25,11 +29,41 @@ class ReportingAgent:
 
         )
 
-        failed = total - passed
+        failed = sum(
+
+            1
+
+            for result in results
+
+            if result.result == "FAIL"
+
+        )
+
+        review_required = sum(
+
+            1
+
+            for result in results
+
+            if result.result == "REVIEW_REQUIRED"
+
+        )
 
         pass_rate = (
 
             passed / total * 100
+
+        )
+
+        fail_rate = (
+
+            failed / total * 100
+
+        )
+
+        intelligent_review_rate = (
+
+            review_required / total * 100
 
         )
 
@@ -239,6 +273,32 @@ class ReportingAgent:
 
         )
 
+        historical_agent = (
+
+            HistoricalAnalyticsAgent()
+
+        )
+
+        historical_agent.save_run(
+
+            pass_rate,
+
+            average_confidence_score,
+
+            average_probability_score,
+
+            review_rate,
+
+            high_risk
+
+        )
+
+        history = (
+
+            historical_agent.load_history()
+
+        )
+
         print(
 
             "\n======================"
@@ -277,13 +337,31 @@ class ReportingAgent:
 
         print(
 
-            f"Pass Rate: {pass_rate:.2f}%"
+            f"Review Required: {review_required}"
 
         )
 
         print(
 
-            f"Average Semantic Score: {average_semantic_score:.2f}"
+            f"\nPass Rate: {pass_rate:.2f}%"
+
+        )
+
+        print(
+
+            f"Fail Rate: {fail_rate:.2f}%"
+
+        )
+
+        print(
+
+            f"Review Required Rate: {intelligent_review_rate:.2f}%"
+
+        )
+
+        print(
+
+            f"\nAverage Semantic Score: {average_semantic_score:.2f}"
 
         )
 
@@ -403,7 +481,7 @@ class ReportingAgent:
 
         print(
 
-            f"Review Rate: {review_rate:.2f}%"
+            f"Review Queue Rate: {review_rate:.2f}%"
 
         )
 
@@ -428,6 +506,42 @@ class ReportingAgent:
         print(
 
             f"LOW: {low_probability}"
+
+        )
+
+        print(
+
+            "\nHISTORICAL ANALYTICS"
+
+        )
+
+        print(
+
+            f"\nTotal Historical Runs: {history['total_runs']}"
+
+        )
+
+        print(
+
+            f"Best Pass Rate: {history['best_pass_rate']:.2f}%"
+
+        )
+
+        print(
+
+            f"Worst Pass Rate: {history['worst_pass_rate']:.2f}%"
+
+        )
+
+        print(
+
+            f"Historical Average Pass Rate: {history['average_pass_rate']:.2f}%"
+
+        )
+
+        print(
+
+            f"Latest Run Timestamp: {history['latest_timestamp']}"
 
         )
 

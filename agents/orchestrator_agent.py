@@ -38,6 +38,10 @@ from agents.probabilistic_verification_agent import (
     ProbabilisticVerificationAgent
 )
 
+from agents.intelligent_evaluation_agent import (
+    IntelligentEvaluationAgent
+)
+
 from agents.risk_agent import (
     RiskAgent
 )
@@ -93,6 +97,10 @@ class OrchestratorAgent:
 
         self.probability_agent = (
             ProbabilisticVerificationAgent()
+        )
+
+        self.intelligent_agent = (
+            IntelligentEvaluationAgent()
         )
 
         self.risk_agent = (
@@ -277,6 +285,26 @@ class OrchestratorAgent:
 
         )
 
+        intelligent_result = (
+
+            self.intelligent_agent.evaluate(
+
+                validation_result["semantic_score"],
+
+                consensus_result["score"],
+
+                confidence_result["score"],
+
+                probability_result["probability"],
+
+                security_result["risk"],
+
+                review_result["required"]
+
+            )
+
+        )
+
         risk_result = (
 
             self.risk_agent.assess(
@@ -288,7 +316,15 @@ class OrchestratorAgent:
         )
 
         result.result = (
-            validation_result["validation"]
+            intelligent_result["decision"]
+        )
+
+        result.intelligent_decision = (
+            intelligent_result["decision"]
+        )
+
+        result.intelligent_reason = (
+            intelligent_result["reason"]
         )
 
         result.semantic_score = (
@@ -381,7 +417,7 @@ class OrchestratorAgent:
 
         print(
 
-            f"\nFinal Result: {result.result}"
+            f"\nFinal Intelligent Decision: {result.intelligent_decision}"
 
         )
 
